@@ -23,7 +23,6 @@ export default function RootLayout({ children }) {
                     <body className={`${inter.className} bg-purple-2 text-light-1`}>
                         <LeftSideBar />
                         <MainContainer>
-                            <Topbar />
                             {children}
                         </MainContainer>
                         <RightSideBar />
