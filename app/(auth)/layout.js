@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google' 
 import { ClerkProvider } from '@clerk/nextjs'
 import '../globals.css'
-import { Clerk } from '@clerk/nextjs/server'
+
 
 
 export const metadata = {   

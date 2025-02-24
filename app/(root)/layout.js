@@ -1,10 +1,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import LeftSideBar from "@components/layout/LeftSideBar";
-import MainContainer from "@components/layout/MainContainer";
-import RightSideBar from "@components/layout/RightSideBar";
-import BottomBar from "@components/layout/BottomBar";
+import LeftSideBar from "@/components/layout/LeftSideBar"
+import MainContainer from "@/components/layout/MainContainer";
+import RightSideBar from "@/components/layout/RightSideBar";
+import BottomBar from "@/components/layout/BottomBar";
 
 
 export const metadata = {
@@ -18,16 +18,16 @@ export default function RootLayout({ children }) {
     return (
         <ClerkProvider>
             <html lang="en">
-                <main className="flex felx-row">
-                    <body className={`${inter.className} bg-purple-2 text-light-1`}>
+                <body className={`${inter.className} bg-purple-2 text-light-1`}>
+                    <main className="flex felx-row">
                         <LeftSideBar />
                         <MainContainer>
                             {children}
                         </MainContainer>
                         <RightSideBar />
-                    </body>
-                </main>
-                <BottomBar />
+                    </main>
+                    <BottomBar />
+                </body>
             </html>
         </ClerkProvider>
     );

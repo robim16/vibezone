@@ -46,7 +46,7 @@ const LeftSideBar = () => {
 
         <div className='flex gap-4 items-center'>
           <UserButton/>
-          <p className='text-light-1 text-body-bold'>Manage Cccount</p>
+          <p className='text-light-1 text-body-bold'>Manage Account</p>
         </div>
 
         <SignedIn>
