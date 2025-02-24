@@ -1,6 +1,6 @@
 "use client"
 
-import Topbar from "@/components/layout/Topbar";
+import Topbar from "@/components/layout/TopBar";
 import { pageTitles } from '../../constants';
 import { usePathname } from 'next/navigation';
 
