@@ -3,8 +3,8 @@ import { SignedIn, SignOutButton } from '@clerk/clerk-react'
 import { Add, Logout, Search } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useRouter } from "next/navigation";
+import { useState } from 'react'
 
 const TopBar = () => {
   const router = useRouter()
