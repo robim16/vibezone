@@ -22,7 +22,9 @@ export default function Home() {
   return loading ? <Loader /> : (
     <div className="flex flex-col gap-10">
       { feedPost.map((post) => (
-        <PostCard />
+        <PostCard
+          key={post._id}
+          post={post} />
       ))}
     </div>
   )

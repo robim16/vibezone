@@ -74,7 +74,7 @@ const LeftSideBar = () => {
         <SignedIn>
           <SignOutButton>
             <div className='flex cursor-pointer gap-4 items-center'>
-              <Logout sx={{ color: "white", fontSize: "32px"}} />
+              {/* <Logout sx={{ color: "white", fontSize: "32px"}} /> */}
               <p className='text-body-bold text-light-1'>Log Out</p>
             </div>
           </SignOutButton>
