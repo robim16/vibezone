@@ -1,4 +1,4 @@
-import { connectToDB } from "@lib/mongodb/mongoose"
+import { connectToDB } from "../../../../lib/mongodb/mongoose"
 import Post from "../../../../lib/models/Post"
 import { writeFile } from "fs"
 import { use } from "react"
