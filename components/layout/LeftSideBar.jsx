@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Menu from './Menu'
 import { UserButton, SignedIn, SignOutButton, useUser } from '@clerk/nextjs'
-import { Logout } from '@mui/icons-material'
+// import { Logout } from '@mui/icons-material'
 import { dark } from "@clerk/themes";
 import Loader from "@/components/Loader"
 
