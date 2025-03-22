@@ -3,9 +3,11 @@
 import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 import PostCard from "@/components/cards/PostCard"
+import { useUser } from "@clerk/nextjs";
 
 
 export default function Home() {
+  const { user, isLoaded } = useUser()
   const [loading, setLoading] = useState(true)
   const [feedPost, setFeedPost] = useState([])
 
@@ -19,12 +21,15 @@ export default function Home() {
     getFeedPost()
   }, [])
 
-  return loading ? <Loader /> : (
+  return loading || !isLoaded ? <Loader /> : (
     <div className="flex flex-col gap-10">
       { feedPost.map((post) => (
         <PostCard
           key={post._id}
-          post={post} />
+          post={post}
+          creator={post.creator}
+          loggedInUser={user} 
+        />
       ))}
     </div>
   )

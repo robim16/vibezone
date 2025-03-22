@@ -15,7 +15,7 @@ const TopBar = () => {
       <div className='relative'>
         <input type="text" className='search-bar' placeholder='Search posts, people, ...' value={search}
           onChange={(e) => setSearch(e.target.value)} />
-        <Search className='search-icon' onClick={() => { }} />
+        <Search className='search-icon' onClick={() => router.push(`/search/posts/${search}`)} />
       </div>
       <button className='create-post-btn' onClick={() => router.push("/create-post")}>
         <Add />Create A Post</button>

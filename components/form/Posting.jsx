@@ -1,9 +1,9 @@
 import { AddPhotoAlternateOutlined } from "@mui/icons-material"
 import Image from "next/image"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 
-const Posting = ({ post }) => {
+const Posting = ({ post, apiEndpoint }) => {
   const { register,
     handleSubmit,
     watch,
@@ -21,9 +21,14 @@ const Posting = ({ post }) => {
       postForm.append("creatorId", data.creatorId)
       postForm.append("caption", data.caption)
       postForm.append("tag", data.tag)
-      postForm.append("postPhoto", data.postPhoto[0])
 
-      const response = await fetch("api/post/new", 
+      if (typeof data.postPhoto !== "string") {
+        postForm.append("postPhoto", data.postPhoto[0])
+      } else {
+        postForm.append("postPhoto", data.postPhoto)
+      }
+
+      const response = await fetch(apiEndpoint, 
       {
         method: "POST",
         body: postForm
