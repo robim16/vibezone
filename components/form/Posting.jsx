@@ -53,7 +53,7 @@ const Posting = ({ post, apiEndpoint }) => {
             <Image src={watch("postPhoto")} alt="post" width={250} height={200} 
               className="object-cover rounded-lg" />
           ) : (
-            <Image src={URL.createObjectURL(watch("postPhoto"))} alt="post" width={250} height={200} 
+            <Image src={URL.createObjectURL(watch("postPhoto")[0])} alt="post" width={250} height={200} 
               className="object-cover rounded-lg" />
           )) : (
             <AddPhotoAlternateOutlined sx={{ fontSize: "100px", color: "white" }} />
