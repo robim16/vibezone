@@ -1,7 +1,6 @@
 import { connectToDB } from "../../../../lib/mongodb/mongoose"
 import Post from "../../../../lib/models/Post"
 import { writeFile } from "fs"
-import { use } from "react"
 import User from "../../../../lib/models/User"
 
 export const POST = async(req) => {
@@ -49,6 +48,6 @@ export const POST = async(req) => {
     }
     catch (error) {
         console.log(error);
-        return new Response("Failed to create a new post", { status: 500})
+        return new Response("Failed to create a new post" + error.message, { status: 500 })
     }
 }

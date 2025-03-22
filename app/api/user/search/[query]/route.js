@@ -10,7 +10,8 @@ export const GET = async (req, { params }) => {
         const searchedUsers = await User.find({
             $or: [
                 { username: { $regex: query, $options: "i" }},
-                { name: { $regex: query, $options: "i"}}
+                { firstName: { $regex: query, $options: "i"}},
+                { lastName: { $regex: query, $options: "i"}}
             ]
 
         }).exec()
