@@ -74,7 +74,7 @@ const Posting = ({ post, apiEndpoint }) => {
         })} 
         id="photo" 
         type="file" 
-        style={{ display: none }} 
+        style={{ display: "none" }} 
       />
       {errors.postPhoto && (
         <p className="text-red-500">{errors.postPhoto.message}</p>

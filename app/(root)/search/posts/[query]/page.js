@@ -31,7 +31,7 @@ const SearchPost = () => {
                 <Link className='tab bg-purple-1' href={`/search/posts/${query}`}>Posts</Link>
             </div>
             <div className='flex gap-6'>
-                <Link className='tab bg-purple-1' href={`/search/people/${query}`}>People</Link>
+                <Link className='tab bg-light-1' href={`/search/people/${query}`}>People</Link>
             </div>
 
             {searchedPosts.map((post) => (
