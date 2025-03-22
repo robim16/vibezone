@@ -1,7 +1,7 @@
 import { connectToDB } from "../../../../lib/mongodb/mongoose"
 import Post from "../../../../lib/models/Post"
-import { writeFile } from "fs"
 import User from "../../../../lib/models/User"
+import { writeFile } from "fs/promises"
 
 export const POST = async(req) => {
     const path = require("path")
