@@ -3,42 +3,42 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useState } from 'react'
-import PostCard from '../../../../../components/cards/PostCard'
 import { useUser } from '@clerk/nextjs'
+import UserCard from '../../../../../components/cards/UserCard'
 
-const SearchPost = () => {
+const SearchPeople = () => {
   const { query } = useParams()
 
   const [loading, setLoading] = useState(true)
 
-  const [searchedPosts, setSearchedPosts] = useState([])
+  const [searchedPeople, setSearchedPeople] = useState([])
 
-  const getSearchedPosts = async () => {
-    const response = await fetch(`/api/post/search/${query}`)
+  const getSearchedPeople = async () => {
+    const response = await fetch(`/api/user/search/${query}`)
     const data = await response.json()
     setSearchedPosts(data)
     setLoading(false)
   }
 
   useEffect(() => {
-    getSearchedPosts()
+    getSearchedPeople()
   }, [query])
 
   const { user, isLoaded } = useUser()
   return loading || !isLoaded ? <Loader /> : (
     <div className='flex flex-col gap-10'>
       <div className='flex gap-6'>
-        <Link className='tab bg-purple-1' href={`/search/posts/${query}`}>Posts</Link>
+        <Link className='tab bg-dark-2' href={`/search/posts/${query}`}>Posts</Link>
       </div>
       <div className='flex gap-6'>
-        <Link className='tab bg-light-1' href={`/search/people/${query}`}>People</Link>
+        <Link className='tab bg-purple-1' href={`/search/people/${query}`}>People</Link>
       </div>
 
-      {searchedPosts.map((post) => (
-        <PostCard key={post._id} post={post} creator={post.creator} loggedInUser={user} />
+      {searchedPeople.map((person) => (
+        <UserCard key={person._id} userData={person} update={getSearchedPeople} />
       ))}
     </div>
   )
 }
 
-export default SearchPost
+export default SearchPeople

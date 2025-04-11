@@ -1,6 +1,7 @@
 import { writeFile } from 'fs'
 import { connectToDB } from '../../../../lib/mongodb/mongoose'
 import Post from '../../../../lib/models/Post'
+import { Try } from '@mui/icons-material'
 
 export const GET = async (req, { params }) => {
     try {
@@ -61,5 +62,23 @@ export const POST = async(req, { params }) => {
     catch (error) {
         console.log(error);
         return new Response("Failed to update the post", { status: 500})
+    }
+
+
+}
+
+
+export const DELETE = async (req, { params }) => {
+
+    try {
+        await connectToDB()
+
+        const post = await Post.findByIdAndDelete(params.id)
+
+        return new Response("Post is deleted", { status: 200})
+        
+    } catch (error) {
+        console.log(error);
+        return new Response("Failed to delete the post", { status: 500})
     }
 }

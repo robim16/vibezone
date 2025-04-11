@@ -35,7 +35,7 @@ const Posting = ({ post, apiEndpoint }) => {
       })
 
       if (response.ok) {
-        router.push(`/profile/${data.creatorId}`)
+        router.push(`/profile/${data.creatorId}/posts`)
       }
 
     } catch (error) {

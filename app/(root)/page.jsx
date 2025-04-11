@@ -29,6 +29,7 @@ export default function Home() {
           post={post}
           creator={post.creator}
           loggedInUser={user} 
+          update={getFeedPost}
         />
       ))}
     </div>

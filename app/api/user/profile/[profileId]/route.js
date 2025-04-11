@@ -5,7 +5,7 @@ export const GET = async (req, { params }) => {
     try {
         await connectToDB()
 
-        const user = await User.findOne({ clerkId: params.id })
+        const user = await User.findById(params.profileId)
             .populate({
                 path: "posts savedPosts likedPosts",
                 model: Post,
@@ -22,7 +22,8 @@ export const GET = async (req, { params }) => {
                 model: Post,
                 },
             })
-            .exec()
+            .exec();
+
 
         return new Response(JSON.stringify(user), { status: 200})
     

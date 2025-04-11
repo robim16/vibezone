@@ -1,16 +1,38 @@
 "use client"
-import { SignedIn, SignOutButton } from '@clerk/clerk-react'
-import { Add, Logout, Search } from '@mui/icons-material'
-import Image from 'next/image'
-import Link from 'next/link'
+import { SignedIn, SignOutButton, UserButton, useUser } from '@clerk/clerk-react'
+import { dark } from '@clerk/themes'
+import { Add, Logout, Person, Search } from '@mui/icons-material'
 import { useRouter } from "next/navigation";
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Loader from '../Loader';
+import Link from 'next/link';
 
 const TopBar = () => {
+  const { user, isLoaded } = useUser()
+
   const router = useRouter()
+
   const [search, setSearch] = useState('')
 
-  return (
+  const [loading, setLoading] = useState(true)
+
+  const [userData, setUserData] = useState({})
+
+  const getUser = async () => {
+    const response = await fetch(`/api/user/${user.id}`)
+    const data = await response.json()
+    setUserData(data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    if (user) {
+      getUser()
+    }
+  }, [user])
+
+
+  return !isLoaded || loading ? <Loader /> : (
     <div className='flex justify-between items-center mt-6'>
       <div className='relative'>
         <input type="text" className='search-bar' placeholder='Search posts, people, ...' value={search}
@@ -20,18 +42,12 @@ const TopBar = () => {
       <button className='create-post-btn' onClick={() => router.push("/create-post")}>
         <Add />Create A Post</button>
 
-      <div className="flex gap-3">
-        <SignedIn>
-          <SignOutButton>
-            <div className='flex cursor-pointer items-center md:hidden'>
-              <Logout sx={{ color: "white", fontSize: "32px" }} />
-            </div>
-          </SignOutButton>
-        </SignedIn>
-        <Link href="/">
-        <Image src="/assets/phucmai.png" alt='profile photo' width={50} height={50}
-          className='rounded-full md:hidden'></Image>
-      </Link>
+      <div className="flex gap-4 md:hidden">
+        <Link href={`/profile/${userData._id}/posts`}>
+          <Person sx={{ fontSize: "35px", color: "white"}} />
+        </Link>
+
+        <UserButton appearance={{ baseTheme: dark }} afterSignOutUrl="/sign-in" />
       </div>
     </div>
   )

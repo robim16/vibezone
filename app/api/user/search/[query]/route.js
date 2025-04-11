@@ -14,7 +14,7 @@ export const GET = async (req, { params }) => {
                 { lastName: { $regex: query, $options: "i"}}
             ]
 
-        }).exec()
+        }).populate("post savedPosts likedPosts followers following").exec()
 
         return new Response(JSON.stringify(searchedUsers), { status: 200})
     } catch (error) {
