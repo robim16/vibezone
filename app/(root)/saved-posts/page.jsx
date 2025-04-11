@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from 'react'
-import Loader from "../../../../../components/Loader"
-import PostCard from "../../../../../components/cards/PostCard"
+import Loader from "../../../components/Loader"
+import PostCard from "../../../components/cards/PostCard"
 
 const SavedPosts = () => {
     const { user, isLoaded } = useUser()

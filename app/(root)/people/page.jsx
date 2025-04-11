@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react'
-import Loader from "../../../../../components/Loader"
-import { users } from '@clerk/nextjs/api'
+import Loader from "../../../components/Loader"
 import UserCard from '../../../components/cards/UserCard'
 
 
