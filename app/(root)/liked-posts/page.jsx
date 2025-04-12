@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Loader from "../../../components/Loader"
-import PostCard from "../../../../../components/cards/PostCard"
+import PostCard from "../../../components/cards/PostCard"
 
 const LikedPosts = () => {
     const { user, isLoaded } = useUser()
