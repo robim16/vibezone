@@ -18,6 +18,7 @@ const LeftSideBar = () => {
 
   const getUser = async () => {
     const response = await fetch(`/api/user/${user.id}`)
+    console.log(response)
     const data = await response.json()
     setUserData(data)
     setLoading(false)
