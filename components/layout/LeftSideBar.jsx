@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Menu from './Menu'
 import { UserButton, SignedIn, SignOutButton, useUser } from '@clerk/nextjs'
-// import { Logout } from '@mui/icons-material'
 import { dark } from "@clerk/themes";
 import Loader from "@/components/Loader"
 
@@ -17,9 +16,10 @@ const LeftSideBar = () => {
   const [userData, setUserData] = useState({})
 
   const getUser = async () => {
+    console.log(user)
     const response = await fetch(`/api/user/${user.id}`)
-    console.log(response)
     const data = await response.json()
+    console.log(data)
     setUserData(data)
     setLoading(false)
   }
