@@ -7,7 +7,8 @@ const nextConfig = {
         hostname: 'img.clerk.com',
       }
     ]
-  }
+  },
+  output: 'standalone'
 }
 
 module.exports = nextConfig
