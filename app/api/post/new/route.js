@@ -19,7 +19,8 @@ export const POST = async(req) => {
         const buffer = Buffer.from(bytes)
 
         const postPhotoPath = path.join(
-            currentWorkingDirectory,
+            // currentWorkingDirectory,
+            process.cwd(),
             "public",
             "uploads",
             postPhoto.name
