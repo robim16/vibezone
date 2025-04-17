@@ -1,7 +1,7 @@
 import { writeFile } from 'fs'
 import { connectToDB } from '../../../../lib/mongodb/mongoose'
 import Post from '../../../../lib/models/Post'
-import { Try } from '@mui/icons-material'
+
 
 export const GET = async (req, { params }) => {
     try {

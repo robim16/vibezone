@@ -9,6 +9,7 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
   const getUser = async () => {
     const response = await fetch(`api/user/${loggedInUser.id}`)
     const data = await response.json()
+    setUserData(data);
   }
 
   useEffect(() => {
@@ -46,9 +47,9 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
 
 
   const handleDelete = async () => {
-    const response = await fetch(`/api/post/${post._id}`, {
+    await fetch(`/api/post/${post._id}/${userData._id}`, {
       method: "DELETE",
-    })
+    });
 
     update()
   }

@@ -13,7 +13,7 @@ export const POST = async (req, { params }) => {
         const user = await User.findOne({ clerkId: userId }).populate("posts savedPosts likedPosts following followers")
         const post = await Post.findById(postId).populate("creator likes")
 
-        const isSaved = user.savedPosts.find8((item) => item._id.toString() === postId)
+        const isSaved = user.savedPosts.find((item) => item._id.toString() === postId)
 
         if (isSaved) {
             user.savedPosts = user.savedPosts.filter((item) => item._id.toString() !== postId)

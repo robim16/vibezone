@@ -18,7 +18,7 @@ export const POST = async(req) => {
         const bytes = await postPhoto.arrayBuffer()
         const buffer = Buffer.from(bytes)
 
-        const postPhotoPath = path.resolve(
+        const postPhotoPath = path.join(
             currentWorkingDirectory,
             "public",
             "uploads",
