@@ -12,7 +12,7 @@ const People = () => {
 
     const getAllUsers = async () => {
         const response = fetch(`/api/user`)
-        const data = await response.jsson()
+        const data = await response.json()
         setAllUsers(data)
         setLoading(false)
     }

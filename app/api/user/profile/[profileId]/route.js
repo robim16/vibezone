@@ -10,16 +10,16 @@ export const GET = async (req, { params }) => {
                 path: "posts savedPosts likedPosts",
                 model: Post,
                 populate: {
-                path: "creator",
-                model: User,
+                    path: "creator",
+                    model: User,
                 },
             })
             .populate({
                 path: "followers following",
                 model: User,
                 populate: {
-                path: "posts savedPosts likedPosts",
-                model: Post,
+                    path: "posts savedPosts likedPosts",
+                    model: Post,
                 },
             })
             .exec();
