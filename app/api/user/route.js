@@ -5,7 +5,7 @@ export const GET = async (req) => {
     try {
         await connectToDB()
 
-        const allUsers = await User.find().populate("posts savedPosts likedPosts followers following").exex()
+        const allUsers = await User.find().populate("posts savedPosts likedPosts followers following").exec()
     
         return Response(JSON.stringify(allUsers), { status: 200})
     } catch (error) {
