@@ -11,7 +11,7 @@ const People = () => {
     const [allUsers, setAllUsers] = useState([])
 
     const getAllUsers = async () => {
-        const response = fetch(`/api/user`)
+        const response = await fetch(`/api/user`)
         const data = await response.json()
         setAllUsers(data)
         setLoading(false)
