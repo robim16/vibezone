@@ -5,6 +5,7 @@ import UserCard from "../../../../../components/cards/UserCard"
 import ProfileCard from "../../../../../components/cards/ProfileCard"
 import Loader from "../../../../../components/Loader"
 import { useParams } from "next/navigation"
+import { useUser } from "@clerk/nextjs"
 
 
 const Following = () => {

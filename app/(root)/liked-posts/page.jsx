@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Loader from "../../../components/Loader"
 import PostCard from "../../../components/cards/PostCard"
+import { useUser } from '@clerk/nextjs'
 
 const LikedPosts = () => {
     const { user, isLoaded } = useUser()
