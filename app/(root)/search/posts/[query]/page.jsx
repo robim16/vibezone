@@ -25,6 +25,7 @@ const SearchPost = () => {
     }, [query])
 
     const { user, isLoaded } = useUser()
+    
     return loading || !isLoaded ? <Loader /> : (
         <div className='flex flex-col gap-10'>
             <div className='flex gap-6'>

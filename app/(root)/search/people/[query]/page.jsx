@@ -16,7 +16,7 @@ const SearchPeople = () => {
   const getSearchedPeople = async () => {
     const response = await fetch(`/api/user/search/${query}`)
     const data = await response.json()
-    setSearchedPosts(data)
+    setSearchedPeople(data)
     setLoading(false)
   }
 
@@ -25,6 +25,7 @@ const SearchPeople = () => {
   }, [query])
 
   const { user, isLoaded } = useUser()
+  
   return loading || !isLoaded ? <Loader /> : (
     <div className='flex flex-col gap-10'>
       <div className='flex gap-6'>
