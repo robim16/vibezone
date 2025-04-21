@@ -8,7 +8,9 @@ const nextConfig = {
       }
     ]
   },
-  outputFileTracing: true
+  experimental: { 
+    nftTracing: true 
+  }
 }
 
 module.exports = nextConfig
