@@ -7,11 +7,6 @@ const nextConfig = {
         hostname: 'img.clerk.com',
       }
     ]
-  },
-  experimental: {
-    outputFileTracingIncludes: {
-      '/**': ['./public/uploads/**/*'],
-    },
   }
 }
 

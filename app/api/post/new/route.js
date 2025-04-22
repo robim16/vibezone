@@ -20,7 +20,7 @@ export const POST = async(req) => {
 
         const postPhotoPath = path.join(
             currentWorkingDirectory,
-            "public",
+            "./public",
             "uploads",
             postPhoto.name
         )
