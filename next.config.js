@@ -8,8 +8,10 @@ const nextConfig = {
       }
     ]
   },
-  experimental: { 
-    nftTracing: true 
+  experimental: {
+    outputFileTracingIncludes: {
+      '/**': ['./public/uploads/**/*'],
+    },
   }
 }
 
