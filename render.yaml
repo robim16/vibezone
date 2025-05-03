@@ -3,7 +3,7 @@ services:
   name: next-js
   runtime: node
   plan: starter
-  buildCommand: npm; npm build
+  buildCommand: npm; npm run build
   startCommand: npm start
   autoDeploy: false
   envVars:
